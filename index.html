@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus Chat</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ========== AUTH ========== -->
+<div id="auth-container">
+    <div class="auth-card">
+        <h2>✨ Nexus Chat</h2>
+        <div class="auth-tabs">
+            <button id="login-tab" class="active">Login</button>
+            <button id="signup-tab">Sign Up</button>
+        </div>
+
+        <form id="login-form" class="auth-form active">
+            <input type="email" id="login-email" placeholder="Email" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button type="submit">Login</button>
+            <div id="login-error" class="error"></div>
+        </form>
+
+        <form id="signup-form" class="auth-form">
+            <input type="text" id="signup-name" placeholder="Your name" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" placeholder="Password (min 6 chars)" required minlength="6">
+            <button type="submit">Create Account</button>
+            <div id="signup-error" class="error"></div>
+        </form>
+    </div>
+</div>
+
+<!-- ========== CHAT APP ========== -->
+<div id="chat-app" class="chat-app hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h1>💬 Nexus Chat</h1>
+            <input type="text" id="users-search" class="sidebar-search" placeholder="Search users...">
+        </div>
+        <div class="users-list" id="users-list"></div>
+    </aside>
+
+    <!-- MAIN CHAT -->
+    <main class="main-chat">
+        <header class="chat-header">
+            <div class="header-left">
+                <div class="header-info">
+                    <h2 id="chat-title">🌍 Global Chat</h2>
+                    <p id="chat-subtitle">Everyone can see messages here</p>
+                </div>
+            </div>
+            <div class="user-info">
+                <span id="username-display">user</span>
+                <button id="logout-btn" class="logout-icon" title="Logout">⏻</button>
+            </div>
+        </header>
+
+        <!-- Tabs -->
+        <div class="chat-tabs">
+            <button id="tab-global" class="chat-tab active">🌍 Global</button>
+            <button id="tab-inbox" class="chat-tab">
+                📥 Inbox
+                <span id="unread-total" class="tab-badge hidden">0</span>
+            </button>
+        </div>
+
+        <!-- Messages -->
+        <div class="messages-area" id="messages-area">
+            <div class="messages-list" id="messages-list"></div>
+        </div>
+
+        <!-- Input -->
+        <div class="input-area">
+            <button id="emoji-btn" class="emoji-btn">😀</button>
+            <div id="emoji-picker" class="emoji-picker hidden">
+                <span>😀</span><span>😂</span><span>😍</span><span>🥳</span><span>😎</span>
+                <span>🤔</span><span>😢</span><span>😡</span><span>👍</span><span>👏</span>
+                <span>🙏</span><span>🔥</span><span>💯</span><span>❤️</span><span>🎉</span>
+                <span>✨</span><span>🚀</span><span>💡</span><span>🌙</span><span>☀️</span>
+            </div>
+            <input type="text" id="message-input" placeholder="Type a message...">
+            <button id="send-btn" class="send-btn">➤</button>
+        </div>
+    </main>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
